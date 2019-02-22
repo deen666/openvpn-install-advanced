@@ -451,7 +451,7 @@ else
 	echo "   3) Verisign"
 	echo "   4) NTT"
 	echo "   5) Hurricane Electric"
-	echo "   6) Google"
+	echo "   6) 1.1.1.1"
 	echo ""
 	read -p "DNS [1-6]: " -e -i 1 DNS
     fi
@@ -461,7 +461,7 @@ else
 	echo "Please, use one word only, no special characters"
 	read -p "Client name: " -e -i client CLIENT
 	echo ""
-	
+
 		if [[ "$OS" = 'debian' ]]; then
 		apt-get update -qq
 		apt-get install openvpn iptables openssl -y -qq
@@ -604,8 +604,8 @@ ifconfig-pool-persist ipp.txt" > /etc/openvpn/$UDP_SERVICE_AND_CONFIG_NAME.conf
 			echo 'push "dhcp-option DNS 74.82.42.42"' >> /etc/openvpn/$UDP_SERVICE_AND_CONFIG_NAME.conf
 			;;
 			6)
-			echo 'push "dhcp-option DNS 8.8.8.8"' >> /etc/openvpn/$UDP_SERVICE_AND_CONFIG_NAME.conf
-			echo 'push "dhcp-option DNS 8.8.4.4"' >> /etc/openvpn/$UDP_SERVICE_AND_CONFIG_NAME.conf
+			echo 'push "dhcp-option DNS 1.1.1.1"' >> /etc/openvpn/$UDP_SERVICE_AND_CONFIG_NAME.conf
+			echo 'push "dhcp-option DNS 1.0.0.1"' >> /etc/openvpn/$UDP_SERVICE_AND_CONFIG_NAME.conf
 			;;
 			7)
 			echo 'push "dhcp-option DNS 10.8.0.1"' >> /etc/openvpn/$UDP_SERVICE_AND_CONFIG_NAME.conf
@@ -670,8 +670,8 @@ rcvbuf 0" > /etc/openvpn/$TCP_SERVICE_AND_CONFIG_NAME.conf
 			echo 'push "dhcp-option DNS 74.82.42.42"' >> /etc/openvpn/$TCP_SERVICE_AND_CONFIG_NAME.conf
 			;;
 			6)
-			echo 'push "dhcp-option DNS 8.8.8.8"' >> /etc/openvpn/$TCP_SERVICE_AND_CONFIG_NAME.conf
-			echo 'push "dhcp-option DNS 8.8.4.4"' >> /etc/openvpn/$TCP_SERVICE_AND_CONFIG_NAME.conf
+			echo 'push "dhcp-option DNS 1.1.1.1"' >> /etc/openvpn/$TCP_SERVICE_AND_CONFIG_NAME.conf
+			echo 'push "dhcp-option DNS 1.0.0.1"' >> /etc/openvpn/$TCP_SERVICE_AND_CONFIG_NAME.conf
 			;;
 			7)
 			echo 'push "dhcp-option DNS 10.9.0.1"' >> /etc/openvpn/$TCP_SERVICE_AND_CONFIG_NAME.conf
